@@ -1,99 +1,91 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Канга проекты</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Подключение шрифтов -->
-    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <!-- Подключение иконок (опционально) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pIVdX4H9kKq7w4r3X8u+2hE8Yx0q9rK6eYx9X3XK9q7vM3p8bE9GfX7v0r8bK5rX9q7vM3p8bE9GfX7v0r8bK5rX9Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
-    <div id="webcrumbs">
-        <div class="container">
-            <header class="text-center py-10">
-                <h1 class="font-title text-4xl tracking-wide">Канга проекты</h1>
-            </header>
-            <main class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <section class="bg-white text-neutral-950 p-6 rounded-md shadow-md">
-                    <h2 class="font-semibold text-2xl mb-4 text-blue-600">Python Projects Showcase</h2>
-                    <div class="space-y-4">
-                        <div class="flex gap-4 items-center">
-                            <img src="assets/images/project1.jpg" alt="Project 1" class="w-[120px] h-[120px] object-cover rounded-md">
-                            <div>
-                                <h3 class="text-xl font-medium">Project 1: Web Scraper</h3>
-                                <p class="text-sm">A Python-powered tool for extracting data from websites.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4 items-center">
-                            <img src="assets/images/project2.jpg" alt="Project 2" class="w-[120px] h-[120px] object-cover rounded-md">
-                            <div>
-                                <h3 class="text-xl font-medium">Project 2: Chatbot</h3>
-                                <p class="text-sm">An AI chatbot designed to answer users' questions effectively.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4 items-center">
-                            <img src="assets/images/project3.jpg" alt="Project 3" class="w-[120px] h-[120px] object-cover rounded-md">
-                            <div>
-                                <h3 class="text-xl font-medium">Project 3: Data Visualizer</h3>
-                                <p class="text-sm">A Python app for creating beautiful and interactive charts.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="bg-white text-neutral-950 p-6 rounded-md shadow-md">
-                    <h2 class="font-semibold text-2xl mb-4 text-green-600">User Registration Form</h2>
-                    <form id="registration-form" class="space-y-4">
-                        <div>
-                            <label for="fullname" class="block text-sm font-medium text-neutral-700">
-                                Full Name
-                            </label>
-                            <input
-                                type="text"
-                                id="fullname"
-                                class="mt-1 w-full p-2 border border-neutral-300 rounded-md focus:ring focus:ring-blue-500"
-                                placeholder="Enter your full name"
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-neutral-700">
-                                Email
-                            </label>
-                            <input
-                                type="email"
-                                id="email"
-                                class="mt-1 w-full p-2 border border-neutral-300 rounded-md focus:ring focus:ring-blue-500"
-                                placeholder="Enter your email address"
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label for="password" class="block text-sm font-medium text-neutral-700">
-                                Password
-                            </label>
-                            <input
-                                type="password"
-                                id="password"
-                                class="mt-1 w-full p-2 border border-neutral-300 rounded-md focus:ring focus:ring-green-500"
-                                placeholder="Create a strong password"
-                                required
-                            />
-                        </div>
-                        <button
-                            type="submit"
-                            class="bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm py-2 px-4 rounded-md"
-                        >
-                            Register
-                        </button>
-                    </form>
-                </section>
-            </main>
+<div id="webcrumbs"> 
+         <div className="w-[1200px] bg-gradient-to-br from-blue-600 via-green-500 to-blue-400 text-neutral-100 rounded-lg shadow-lg min-h-[800px] p-10">
+   <header className="text-center py-10">
+     <h1 className="font-title text-4xl tracking-wide">Канга проекты</h1>
+   </header>
+   <main className="grid grid-cols-2 gap-10">
+     <section className="bg-white text-neutral-950 p-6 rounded-md">
+       <h2 className="font-semibold text-2xl mb-4 text-blue-600">Python Projects Showcase</h2>
+       <div className="space-y-4">
+         <div className="flex gap-4 items-center">
+           <img
+             src="https://tools-api.webcrumbs.org/image-placeholder/120/120/products/1"
+             alt="Project 1"
+             className="w-[120px] h-[120px] object-cover rounded-md"
+           />
+           <div>
+             <h3 className="text-xl font-medium">Project 1: Web Scraper</h3>
+             <p className="text-sm">A Python-powered tool for extracting data from websites.</p>
+           </div>
+         </div>
+         <div className="flex gap-4 items-center">
+           <img
+             src="https://tools-api.webcrumbs.org/image-placeholder/120/120/products/2"
+             alt="Project 2"
+             className="w-[120px] h-[120px] object-cover rounded-md"
+           />
+           <div>
+             <h3 className="text-xl font-medium">Project 2: Chatbot</h3>
+             <p className="text-sm">An AI chatbot designed to answer users' questions effectively.</p>
+           </div>
+         </div>
+         <div className="flex gap-4 items-center">
+           <img
+             src="https://tools-api.webcrumbs.org/image-placeholder/120/120/products/3"
+             alt="Project 3"
+             className="w-[120px] h-[120px] object-cover rounded-md"
+           />
+           <div>
+             <h3 className="text-xl font-medium">Project 3: Data Visualizer</h3>
+             <p className="text-sm">A Python app for creating beautiful and interactive charts.</p>
+           </div>
+         </div>
+       </div>
+     </section>
+     <section className="bg-white text-neutral-950 p-6 rounded-md">
+       <h2 className="font-semibold text-2xl mb-4 text-green-600">User Registration Form</h2>
+       <form className="space-y-4">
+         <div>
+           <label htmlFor="fullname" className="block text-sm font-medium text-neutral-700">
+             Full Name
+           </label>
+           <input
+             type="text"
+             id="fullname"
+             className="mt-1 w-full p-2 border border-neutral-300 rounded-md focus:ring focus:ring-blue-500"
+             placeholder="Enter your full name"
+           />
+         </div>
+         <div>
+           <label htmlFor="email" className="block text-sm font-medium text-neutral-700">
+             Email
+           </label>
+           <input
+             type="email"
+             id="email"
+             className="mt-1 w-full p-2 border border-neutral-300 rounded-md focus:ring focus:ring-blue-500"
+             placeholder="Enter your email address"
+           />
+         </div>
+         <div>
+           <label htmlFor="password" className="block text-sm font-medium text-neutral-700">
+             Password
+           </label>
+           <input
+             type="password"
+             id="password"
+             className="mt-1 w-full p-2 border border-neutral-300 rounded-md focus:ring focus:ring-green-500"
+             placeholder="Create a strong password"
+           />
+         </div>
+         <button
+           type="submit"
+           className="bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm py-2 px-4 rounded-md"
+         >
+           Register
+         </button>
+       </form>
+     </section>
+   </main>
+ </div> 
         </div>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>

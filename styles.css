@@ -1,0 +1,44 @@
+/* Подключение Tailwind CSS */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/3.4.11/tailwind.min.css');
+
+/* Дополнительные стили */
+#webcrumbs {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+.font-title {
+    font-family: 'Lato', sans-serif;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 720px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        width: 960px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        width: 1200px;
+    }
+}
+
+/* Стили для кнопки регистрации */
+button[type="submit"] {
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #1e40af;
+}

@@ -1,492 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Webcrumbs Plugin</title>
-    <style>
-      @import url(https://fonts.googleapis.com/css2?family=Lato&display=swap);
-      
-      @import url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
-      
-      @import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200);
-      
-      /*! tailwindcss v3.4.11 | MIT License | https://tailwindcss.com*/
-      *,
-      :after,
-      :before {
-        border: 0 solid #e5e7eb;
-        box-sizing: border-box;
-      }
-      :after,
-      :before {
-        --tw-content: "";
-      }
-      :host,
-      html {
-        line-height: 1.5;
-        -webkit-text-size-adjust: 100%;
-        font-family:
-          Open Sans,
-          ui-sans-serif,
-          system-ui,
-          sans-serif,
-          Apple Color Emoji,
-          Segoe UI Emoji,
-          Segoe UI Symbol,
-          Noto Color Emoji;
-        font-feature-settings: normal;
-        font-variation-settings: normal;
-        -moz-tab-size: 4;
-        tab-size: 4;
-        -webkit-tap-highlight-color: transparent;
-      }
-      body {
-        line-height: inherit;
-        margin: 0;
-      }
-      hr {
-        border-top-width: 1px;
-        color: inherit;
-        height: 0;
-      }
-      abbr:where([title]) {
-        text-decoration: underline dotted;
-      }
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-size: inherit;
-        font-weight: inherit;
-      }
-      a {
-        color: inherit;
-        text-decoration: inherit;
-      }
-      b,
-      strong {
-        font-weight: bolder;
-      }
-      code,
-      kbd,
-      pre,
-      samp {
-        font-family:
-          ui-monospace,
-          SFMono-Regular,
-          Menlo,
-          Monaco,
-          Consolas,
-          Liberation Mono,
-          Courier New,
-          monospace;
-        font-feature-settings: normal;
-        font-size: 1em;
-        font-variation-settings: normal;
-      }
-      small {
-        font-size: 80%;
-      }
-      sub,
-      sup {
-        font-size: 75%;
-        line-height: 0;
-        position: relative;
-        vertical-align: baseline;
-      }
-      sub {
-        bottom: -0.25em;
-      }
-      sup {
-        top: -0.5em;
-      }
-      table {
-        border-collapse: collapse;
-        border-color: inherit;
-        text-indent: 0;
-      }
-      button,
-      input,
-      optgroup,
-      select,
-      textarea {
-        color: inherit;
-        font-family: inherit;
-        font-feature-settings: inherit;
-        font-size: 100%;
-        font-variation-settings: inherit;
-        font-weight: inherit;
-        letter-spacing: inherit;
-        line-height: inherit;
-        margin: 0;
-        padding: 0;
-      }
-      button,
-      select {
-        text-transform: none;
-      }
-      button,
-      input:where([type="button"]),
-      input:where([type="reset"]),
-      input:where([type="submit"]) {
-        -webkit-appearance: button;
-        background-color: transparent;
-        background-image: none;
-      }
-      :-moz-focusring {
-        outline: auto;
-      }
-      :-moz-ui-invalid {
-        box-shadow: none;
-      }
-      progress {
-        vertical-align: baseline;
-      }
-      ::-webkit-inner-spin-button,
-      ::-webkit-outer-spin-button {
-        height: auto;
-      }
-      [type="search"] {
-        -webkit-appearance: textfield;
-        outline-offset: -2px;
-      }
-      ::-webkit-search-decoration {
-        -webkit-appearance: none;
-      }
-      ::-webkit-file-upload-button {
-        -webkit-appearance: button;
-        font: inherit;
-      }
-      summary {
-        display: list-item;
-      }
-      blockquote,
-      dd,
-      dl,
-      figure,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      hr,
-      p,
-      pre {
-        margin: 0;
-      }
-      fieldset {
-        margin: 0;
-      }
-      fieldset,
-      legend {
-        padding: 0;
-      }
-      menu,
-      ol,
-      ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-      dialog {
-        padding: 0;
-      }
-      textarea {
-        resize: vertical;
-      }
-      input::placeholder,
-      textarea::placeholder {
-        color: #9ca3af;
-        opacity: 1;
-      }
-      [role="button"],
-      button {
-        cursor: pointer;
-      }
-      :disabled {
-        cursor: default;
-      }
-      audio,
-      canvas,
-      embed,
-      iframe,
-      img,
-      object,
-      svg,
-      video {
-        display: block;
-        vertical-align: middle;
-      }
-      img,
-      video {
-        height: auto;
-        max-width: 100%;
-      }
-      [hidden] {
-        display: none;
-      }
-      *,
-      :after,
-      :before {
-        --tw-border-spacing-x: 0;
-        --tw-border-spacing-y: 0;
-        --tw-translate-x: 0;
-        --tw-translate-y: 0;
-        --tw-rotate: 0;
-        --tw-skew-x: 0;
-        --tw-skew-y: 0;
-        --tw-scale-x: 1;
-        --tw-scale-y: 1;
-        --tw-pan-x: ;
-        --tw-pan-y: ;
-        --tw-pinch-zoom: ;
-        --tw-scroll-snap-strictness: proximity;
-        --tw-gradient-from-position: ;
-        --tw-gradient-via-position: ;
-        --tw-gradient-to-position: ;
-        --tw-ordinal: ;
-        --tw-slashed-zero: ;
-        --tw-numeric-figure: ;
-        --tw-numeric-spacing: ;
-        --tw-numeric-fraction: ;
-        --tw-ring-inset: ;
-        --tw-ring-offset-width: 0px;
-        --tw-ring-offset-color: #fff;
-        --tw-ring-color: rgba(59, 130, 246, 0.5);
-        --tw-ring-offset-shadow: 0 0 #0000;
-        --tw-ring-shadow: 0 0 #0000;
-        --tw-shadow: 0 0 #0000;
-        --tw-shadow-colored: 0 0 #0000;
-        --tw-blur: ;
-        --tw-brightness: ;
-        --tw-contrast: ;
-        --tw-grayscale: ;
-        --tw-hue-rotate: ;
-        --tw-invert: ;
-        --tw-saturate: ;
-        --tw-sepia: ;
-        --tw-drop-shadow: ;
-        --tw-backdrop-blur: ;
-        --tw-backdrop-brightness: ;
-        --tw-backdrop-contrast: ;
-        --tw-backdrop-grayscale: ;
-        --tw-backdrop-hue-rotate: ;
-        --tw-backdrop-invert: ;
-        --tw-backdrop-opacity: ;
-        --tw-backdrop-saturate: ;
-        --tw-backdrop-sepia: ;
-        --tw-contain-size: ;
-        --tw-contain-layout: ;
-        --tw-contain-paint: ;
-        --tw-contain-style: ;
-      }
-      ::backdrop {
-        --tw-border-spacing-x: 0;
-        --tw-border-spacing-y: 0;
-        --tw-translate-x: 0;
-        --tw-translate-y: 0;
-        --tw-rotate: 0;
-        --tw-skew-x: 0;
-        --tw-skew-y: 0;
-        --tw-scale-x: 1;
-        --tw-scale-y: 1;
-        --tw-pan-x: ;
-        --tw-pan-y: ;
-        --tw-pinch-zoom: ;
-        --tw-scroll-snap-strictness: proximity;
-        --tw-gradient-from-position: ;
-        --tw-gradient-via-position: ;
-        --tw-gradient-to-position: ;
-        --tw-ordinal: ;
-        --tw-slashed-zero: ;
-        --tw-numeric-figure: ;
-        --tw-numeric-spacing: ;
-        --tw-numeric-fraction: ;
-        --tw-ring-inset: ;
-        --tw-ring-offset-width: 0px;
-        --tw-ring-offset-color: #fff;
-        --tw-ring-color: rgba(59, 130, 246, 0.5);
-        --tw-ring-offset-shadow: 0 0 #0000;
-        --tw-ring-shadow: 0 0 #0000;
-        --tw-shadow: 0 0 #0000;
-        --tw-shadow-colored: 0 0 #0000;
-        --tw-blur: ;
-        --tw-brightness: ;
-        --tw-contrast: ;
-        --tw-grayscale: ;
-        --tw-hue-rotate: ;
-        --tw-invert: ;
-        --tw-saturate: ;
-        --tw-sepia: ;
-        --tw-drop-shadow: ;
-        --tw-backdrop-blur: ;
-        --tw-backdrop-brightness: ;
-        --tw-backdrop-contrast: ;
-        --tw-backdrop-grayscale: ;
-        --tw-backdrop-hue-rotate: ;
-        --tw-backdrop-invert: ;
-        --tw-backdrop-opacity: ;
-        --tw-backdrop-saturate: ;
-        --tw-backdrop-sepia: ;
-        --tw-contain-size: ;
-        --tw-contain-layout: ;
-        --tw-contain-paint: ;
-        --tw-contain-style: ;
-      }
-      #webcrumbs .mb-4 {
-        margin-bottom: 16px;
-      }
-      #webcrumbs .mb-6 {
-        margin-bottom: 24px;
-      }
-      #webcrumbs .mb-8 {
-        margin-bottom: 32px;
-      }
-      #webcrumbs .flex {
-        display: flex;
-      }
-      #webcrumbs .h-\[120px\] {
-        height: 120px;
-      }
-      #webcrumbs .min-h-\[900px\] {
-        min-height: 900px;
-      }
-      #webcrumbs .w-\[120px\] {
-        width: 120px;
-      }
-      #webcrumbs .w-\[1440px\] {
-        width: 1440px;
-      }
-      #webcrumbs .flex-row {
-        flex-direction: row;
-      }
-      #webcrumbs .flex-col {
-        flex-direction: column;
-      }
-      #webcrumbs .items-center {
-        align-items: center;
-      }
-      #webcrumbs .justify-center {
-        justify-content: center;
-      }
-      #webcrumbs .justify-between {
-        justify-content: space-between;
-      }
-      #webcrumbs .gap-2 {
-        gap: 8px;
-      }
-      #webcrumbs .gap-4 {
-        gap: 16px;
-      }
-      #webcrumbs .gap-8 {
-        gap: 32px;
-      }
-      #webcrumbs .rounded-full {
-        border-radius: 9999px;
-      }
-      #webcrumbs .rounded-md {
-        border-radius: 18px;
-      }
-      #webcrumbs .bg-neutral-200 {
-        --tw-bg-opacity: 1;
-        background-color: rgb(224 224 224 / var(--tw-bg-opacity));
-      }
-      #webcrumbs .bg-primary-500 {
-        --tw-bg-opacity: 1;
-        background-color: rgb(115 65 255 / var(--tw-bg-opacity));
-      }
-      #webcrumbs .object-contain {
-        object-fit: contain;
-      }
-      #webcrumbs .px-8 {
-        padding-left: 32px;
-        padding-right: 32px;
-      }
-      #webcrumbs .py-2 {
-        padding-bottom: 8px;
-        padding-top: 8px;
-      }
-      #webcrumbs .text-center {
-        text-align: center;
-      }
-      #webcrumbs .font-title {
-        font-family:
-          Lato,
-          ui-sans-serif,
-          system-ui,
-          sans-serif,
-          Apple Color Emoji,
-          Segoe UI Emoji,
-          Segoe UI Symbol,
-          Noto Color Emoji;
-      }
-      #webcrumbs .text-\[32px\] {
-        font-size: 32px;
-      }
-      #webcrumbs .text-lg {
-        font-size: 18px;
-        line-height: 27px;
-      }
-      #webcrumbs .font-medium {
-        font-weight: 500;
-      }
-      #webcrumbs .text-neutral-700 {
-        --tw-text-opacity: 1;
-        color: rgb(103 103 103 / var(--tw-text-opacity));
-      }
-      #webcrumbs .text-neutral-950 {
-        --tw-text-opacity: 1;
-        color: rgb(40 40 40 / var(--tw-text-opacity));
-      }
-      #webcrumbs .text-primary-950 {
-        --tw-text-opacity: 1;
-        color: rgb(34 1 116 / var(--tw-text-opacity));
-      }
-      #webcrumbs .text-white {
-        --tw-text-opacity: 1;
-        color: rgb(255 255 255 / var(--tw-text-opacity));
-      }
-      #webcrumbs .shadow-md {
-        --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-          0 2px 4px -2px rgba(0, 0, 0, 0.1);
-        --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color),
-          0 2px 4px -2px var(--tw-shadow-color);
-        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-      }
-      #webcrumbs {
-        font-family: Open Sans !important;
-        font-size: 16px !important;
-      }
-      #webcrumbs :is(.bg-neutral-200) {
-        color: rgba(0, 0, 0, 0.9) !important;
-      }
-      #webcrumbs :is(.bg-primary-500) {
-        color: hsla(0, 0%, 100%, 0.9) !important;
-      }
-      
-      body {
-        line-height: inherit;
-        padding: 24px;
-        display: flex;
-        flex-direction: column;
-        min-width: 100vw;
-        min-height: 100vh;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(135deg, #ffffff, #d4d4d4);
-      }
-    </style>
-  </head>
-  <body>
-  <div id="webcrumbs">
-    <div class="w-[1440px] min-h-[900px] flex flex-col items-center justify-center" style="background:linear-gradient(to bottom, rgb(173, 216, 230), white)"> <div class="flex flex-col items-center"> <img src="https://tools-api.webcrumbs.org/image-placeholder/200/200/doodles/1" alt="App Logo" class="w-[120px] h-[120px] rounded-full object-contain mb-6"/> <h1 class="text-primary-950 font-title text-[32px] mb-4 text-center"> Социальный Прогнозист </h1> <h2 class="text-neutral-700 text-lg mb-8 text-center"> Analyze and predict social trends </h2> </div> <div class="flex gap-8"> <button class="bg-primary-500 text-white font-medium text-lg rounded-md py-2 px-8 flex items-center gap-2 shadow-md"> <span class="material-symbols-outlined text-white">play_arrow</span> Start </button> <button class="bg-neutral-200 text-neutral-950 font-medium text-lg rounded-md py-2 px-8 flex items-center gap-2 shadow-md"> <span class="material-symbols-outlined">login</span> Login </button> </div> </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas Weather</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    canvas {
+      border: 1px solid #000;
+      margin-top: 20px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Canvas Weather Visualization</h1>
+  <p>Enter a city name to get weather details:</p>
+  <input type="text" id="cityInput" placeholder="Enter city name">
+  <button onclick="fetchWeather()">Get Weather</button>
+  <p id="response"></p>
+  <canvas id="weatherCanvas" width="500" height="300"></canvas>
 
+  <script>
+    async function fetchWeather() {
+      const city = document.getElementById('cityInput').value;
+      const apiUrl = `http://127.0.0.1:8000/canvas?city=${city}`;
 
-  </div>
-  </body>
+      try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+          throw new Error('City not found');
+        }
+        const data = await response.json();
+
+        // Обновляем текстовый вывод
+        document.getElementById('response').innerText = `
+          Weather in ${data.city}: ${data.weather}, Temp: ${data.temperature}°C, Humidity: ${data.humidity}%
+        `;
+
+        // Рисуем данные на canvas
+        drawCanvas(data.temperature, data.humidity);
+      } catch (error) {
+        document.getElementById('response').innerText = 'Error: ' + error.message;
+      }
+    }
+
+    function drawCanvas(temp, humidity) {
+      const canvas = document.getElementById('weatherCanvas');
+      const ctx = canvas.getContext('2d');
+
+      // Очистка холста
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Настройки
+      const barWidth = 100;
+      const maxHeight = 200;
+
+      // Температура
+      ctx.fillStyle = 'blue';
+      const tempHeight = (temp / 50) * maxHeight; // Нормализация (макс 50°C)
+      ctx.fillRect(100, canvas.height - tempHeight, barWidth, tempHeight);
+      ctx.fillText(`Temp: ${temp}°C`, 100, canvas.height - tempHeight - 10);
+
+      // Влажность
+      ctx.fillStyle = 'green';
+      const humidityHeight = (humidity / 100) * maxHeight; // Нормализация (макс 100%)
+      ctx.fillRect(300, canvas.height - humidityHeight, barWidth, humidityHeight);
+      ctx.fillText(`Humidity: ${humidity}%`, 300, canvas.height - humidityHeight - 10);
+    }
+  </script>
+</body>
 </html>

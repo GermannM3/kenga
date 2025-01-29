@@ -1,67 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Canvas Weather</title>
-  <!-- Подключение внешнего CSS-файла -->
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Социальный Прогнозист</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        input, button { padding: 10px; margin: 5px; }
+        #result { margin-top: 20px; font-size: 18px; }
+    </style>
 </head>
 <body>
-  <h1>Canvas Weather Visualization</h1>
-  <p>Enter a city name to get weather details:</p>
-  <input type="text" id="cityInput" placeholder="Enter city name">
-  <button onclick="fetchWeather()">Get Weather</button>
-  <p id="response"></p>
-  <canvas id="weatherCanvas" width="500" height="300"></canvas>
 
-  <script>
-    async function fetchWeather() {
-      const city = document.getElementById('cityInput').value;
-      const apiUrl = `http://127.0.0.1:8000/canvas?city=${city}`;
+    <h1>Социальный Прогнозист</h1>
+    <input type="text" id="query" placeholder="Введите город или имя">
+    <button onclick="getForecast()">Прогноз</button>
+    <button onclick="getAnalysis()">Анализ</button>
 
-      try {
-        const response = await fetch(apiUrl);
-        if (!response.ok) {
-          throw new Error('City not found');
+    <div id="result"></div>
+
+    <script>
+        async function fetchData(url) {
+            let response = await fetch(url);
+            let data = await response.json();
+            document.getElementById('result').innerHTML = JSON.stringify(data, null, 2);
         }
-        const data = await response.json();
 
-        // Обновляем текстовый вывод
-        document.getElementById('response').innerText = `
-          Weather in ${data.city}: ${data.weather}, Temp: ${data.temperature}°C, Humidity: ${data.humidity}%
-        `;
+        function getForecast() {
+            let query = document.getElementById('query').value;
+            if (query) fetchData(`/forecast?location=${query}`);
+        }
 
-        // Рисуем данные на canvas
-        drawCanvas(data.temperature, data.humidity);
-      } catch (error) {
-        document.getElementById('response').innerText = 'Error: ' + error.message;
-      }
-    }
+        function getAnalysis() {
+            let query = document.getElementById('query').value;
+            if (query) fetchData(`/analyze?name=${query}`);
+        }
+    </script>
 
-    function drawCanvas(temp, humidity) {
-      const canvas = document.getElementById('weatherCanvas');
-      const ctx = canvas.getContext('2d');
-
-      // Очистка холста
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Настройки
-      const barWidth = 100;
-      const maxHeight = 200;
-
-      // Температура
-      ctx.fillStyle = 'blue';
-      const tempHeight = (temp / 50) * maxHeight; // Нормализация (макс 50°C)
-      ctx.fillRect(100, canvas.height - tempHeight, barWidth, tempHeight);
-      ctx.fillText(`Temp: ${temp}°C`, 100, canvas.height - tempHeight - 10);
-
-      // Влажность
-      ctx.fillStyle = 'green';
-      const humidityHeight = (humidity / 100) * maxHeight; // Нормализация (макс 100%)
-      ctx.fillRect(300, canvas.height - humidityHeight, barWidth, humidityHeight);
-      ctx.fillText(`Humidity: ${humidity}%`, 300, canvas.height - humidityHeight - 10);
-    }
-  </script>
 </body>
 </html>

@@ -1,45 +1,50 @@
+### HTML (index.html)
+```html
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Социальный Прогнозист</title>
+    <title>Social Forecaster</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
-        input, button { padding: 10px; margin: 5px; }
-        #result { margin-top: 20px; font-size: 18px; }
+        body {
+            background-image: url('static/social_forecaster_logo.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        .content {
+            text-align: center;
+        }
+        h1 {
+            font-size: 3em;
+            color: #4CAF50;
+        }
+        form {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
-
-   <script async src="https://cse.google.com/cse.js?cx=9476973d6bbb34114">
-   </script>
-   <div class="gcse-search"></div>
-    
-    <h1>Социальный Прогнозист</h1>
-    <input type="text" id="query" placeholder="Введите город или имя">
-    <button onclick="getForecast()">Прогноз</button>
-    <button onclick="getAnalysis()">Анализ</button>
-
-    <div id="result"></div>
-
-    <script>
-        async function fetchData(url) {
-            let response = await fetch(url);
-            let data = await response.json();
-            document.getElementById('result').innerHTML = JSON.stringify(data, null, 2);
-        }
-
-        function getForecast() {
-            let query = document.getElementById('query').value;
-            if (query) fetchData(`/forecast?location=${query}`);
-        }
-
-        function getAnalysis() {
-            let query = document.getElementById('query').value;
-            if (query) fetchData(`/analyze?name=${query}`);
-        }
-    </script>
-
+    <div class="container">
+        <div class="content">
+            <h1>Welcome to Social Forecaster</h1>
+            <form method="POST" action="/predict">
+                <label for="region">Region:</label>
+                <input type="text" id="region" name="region" required>
+                <button type="submit">Predict</button>
+            </form>
+            {% if prediction %}
+                <h2>Prediction: {{ prediction }}</h2>
+            {% endif %}
+        </div>
+    </div>
 </body>
 </html>
